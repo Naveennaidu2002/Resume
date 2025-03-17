@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Detail Search</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <h1>Contact Detail Search</h1>
+    <!-- <input type="text" id="searchInput" placeholder="Search for contacts..." onkeyup="searchContacts()"> -->
+
+    <ul id="contactList">
+        <li>📞 123456781 | ✉️ contact@company.com | 📍 CHENNAI</li>
+        <li>📞 987456321 | ✉️ support@company.co.uk | 📍 KERALA</li>
+        <li>📞 456789123 | ✉️ info@company.in | 📍 MUMBAI</li>
+        <li>📞 125634789 | ✉️ hello@company.au | 📍PUNE</li>
+    </ul>
+
+    <script>
+        function searchContacts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const contacts = document.getElementById('contactList').getElementsByTagName('li');
+            
+            for (let i = 0; i < contacts.length; i++) {
+                const contactText = contacts[i].innerText.toLowerCase();
+                if (contactText.includes(input)) {
+                    contacts[i].classList.add("highlight");
+                    contacts[i].style.display = "";
+                } else {
+                    contacts[i].classList.remove("highlight");
+                    contacts[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
